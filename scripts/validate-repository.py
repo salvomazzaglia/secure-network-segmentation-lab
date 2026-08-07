@@ -62,9 +62,7 @@ def main() -> int:
                     errors.append(f"RFC1918 in {rel}")
         # Executable danger in source only
         if path.suffix == ".py" and "src" in path.parts:
-            code_lines = [
-                line for line in text.splitlines() if not line.strip().startswith("#")
-            ]
+            code_lines = [line for line in text.splitlines() if not line.strip().startswith("#")]
             code = "\n".join(code_lines)
             if "shell=True" in code.replace(" ", ""):
                 errors.append(f"shell=True in {rel}")

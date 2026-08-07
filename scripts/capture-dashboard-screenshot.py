@@ -48,9 +48,7 @@ def _validate_png(path: Path) -> dict[str, object]:
     if len(data) < 8 or data[:8] != b"\x89PNG\r\n\x1a\n":
         raise RuntimeError(f"{path.name}: not a valid PNG")
     if len(data) < 50_000:
-        raise RuntimeError(
-            f"{path.name}: file too small ({len(data)} bytes) — likely placeholder"
-        )
+        raise RuntimeError(f"{path.name}: file too small ({len(data)} bytes) — likely placeholder")
     # IHDR width/height
     width = int.from_bytes(data[16:20], "big")
     height = int.from_bytes(data[20:24], "big")
@@ -166,9 +164,7 @@ def main() -> int:
 
         (ROOT / "capture-node-deps").mkdir(exist_ok=True)
         (ROOT / "capture-node-deps" / "screenshot-capture-report.json").write_text(
-            json.dumps(
-                {"marker": MARKER, "bind": "127.0.0.1", "screenshots": report}, indent=2
-            )
+            json.dumps({"marker": MARKER, "bind": "127.0.0.1", "screenshots": report}, indent=2)
             + "\n",
             encoding="utf-8",
         )
