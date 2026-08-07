@@ -31,13 +31,32 @@
 - No PCAP/EVTX/network exports tracked
 - CI uses GitHub-hosted runners; actions pinned to full commit SHAs
 
+## Screenshot verification (v1.0.0)
+
+Captured on 2026-08-07 from the live synthetic dashboard bound to `127.0.0.1` only
+(backend `:8765`, Vite `:5173`), using a temporary browser profile and system Chrome
+headless via `scripts/capture-dashboard-screenshot.py` + `scripts/capture-dashboard.mjs`.
+
+| Asset | Approx. size | Dimensions | Notes |
+| --- | --- | --- | --- |
+| `docs/images/sample-3d-network-security-map.png` | ~375 KB | 1440×1000 | SEGMENTATION mode; banner; FW/core/edge/AP; segment zones |
+| `docs/images/sample-policy-reachability-view.png` | ~375 KB | 1440×1000 | POLICY_REACHABILITY mode; allowed/denied policy edges |
+| `docs/images/sample-device-detail.png` | ~150 KB | 1440×1000 | `SYNTHETIC-UNK-01`; LAA MAC; quarantine; simulated approval dialog |
+
+Programmatic checks: valid PNG signature, non-placeholder file size, non-monochrome entropy.
+Manual review: `SYNTHETIC DEMONSTRATION DATA` present; no RFC1918; no personal browser chrome;
+no DevTools; no real hostnames/SSIDs/vendors; approval text
+`SIMULATED APPROVAL — NO NETWORK CHANGE APPLIED` visible on device detail.
+
+Placeholder solid-color PNGs (~5.8 KB) were replaced and must not be restored.
+
 ## Findings
 
 | Finding | Severity | Status |
 | --- | --- | --- |
 | None: enforcement paths | — | No apply/enforce/CoA/Disconnect commands in v1.0 |
 | None: RFC1918 in synthetic | — | Guard passed |
-| Placeholder screenshots | Informational | Solid-color synthetic PNGs present; regenerate with live dashboard when desired |
+| Screenshots | — | Real dashboard captures of synthetic lab (API-backed) |
 | FastAPI `on_event` deprecation | Low | Functional; lifespan migration deferred |
 
 ## Corrections applied during audit
