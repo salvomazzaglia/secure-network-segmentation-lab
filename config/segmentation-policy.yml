@@ -1,0 +1,230 @@
+# SYNTHETIC segmentation policy — declarative only. No executable expressions.
+# Classification and segmentation decisions are SEPARATE.
+# Evidence → Classification → Confidence → Device profile → Policy → Recommended segment
+version: "1.0.0"
+policy_id_prefix: SNSL-SEG
+default_decision: no_match
+implicit_default_permit: false
+note: "PROPOSED / SIMULATED — NOT APPLIED"
+
+rules:
+  - id: SNSL-SEG-001
+    precedence: 10
+    description: Unknown devices recommend Quarantine
+    match:
+      classification_status: unknown
+    recommend_segment: quarantine
+    decision: quarantine
+    approval:
+      required: true
+
+  - id: SNSL-SEG-002
+    precedence: 20
+    description: Uncertain classification recommends Quarantine pending review
+    match:
+      classification_status: uncertain
+    recommend_segment: quarantine
+    decision: quarantine
+    approval:
+      required: true
+
+  - id: SNSL-SEG-003
+    precedence: 30
+    description: Printers with sufficient confidence → IoT
+    match:
+      device_class: printer
+      confidence_minimum: 0.80
+    recommend_segment: iot
+    decision: recommend_move
+    approval:
+      required: false
+
+  - id: SNSL-SEG-004
+    precedence: 40
+    description: Cameras with sufficient confidence → IoT
+    match:
+      device_class: camera
+      confidence_minimum: 0.80
+    recommend_segment: iot
+    decision: recommend_move
+    approval:
+      required: false
+
+  - id: SNSL-SEG-005
+    precedence: 50
+    description: Generic IoT devices → IoT
+    match:
+      device_class: iot
+      confidence_minimum: 0.80
+    recommend_segment: iot
+    decision: recommend_move
+    approval:
+      required: false
+
+  - id: SNSL-SEG-006
+    precedence: 60
+    description: Media devices → IoT
+    match:
+      device_class: media_device
+      confidence_minimum: 0.80
+    recommend_segment: iot
+    decision: recommend_move
+    approval:
+      required: false
+
+  - id: SNSL-SEG-007
+    precedence: 70
+    description: Servers require approval for Infrastructure
+    match:
+      device_class: server
+      confidence_minimum: 0.80
+    recommend_segment: infrastructure
+    decision: require_approval
+    approval:
+      required: true
+
+  - id: SNSL-SEG-008
+    precedence: 80
+    description: NAS devices require approval for Infrastructure
+    match:
+      device_class: nas
+      confidence_minimum: 0.80
+    recommend_segment: infrastructure
+    decision: require_approval
+    approval:
+      required: true
+
+  - id: SNSL-SEG-009
+    precedence: 90
+    description: Workstations → Trusted
+    match:
+      device_class: workstation
+      confidence_minimum: 0.80
+    recommend_segment: trusted
+    decision: recommend_move
+    approval:
+      required: false
+
+  - id: SNSL-SEG-010
+    precedence: 100
+    description: Laptops → Trusted
+    match:
+      device_class: laptop
+      confidence_minimum: 0.80
+    recommend_segment: trusted
+    decision: recommend_move
+    approval:
+      required: false
+
+  - id: SNSL-SEG-011
+    precedence: 110
+    description: Smartphones on guest SSID remain Guest
+    match:
+      device_class: smartphone
+      tags:
+        - guest_ssid
+      confidence_minimum: 0.70
+    recommend_segment: guest
+    decision: keep
+    approval:
+      required: false
+
+  - id: SNSL-SEG-012
+    precedence: 120
+    description: Tablets on guest SSID remain Guest
+    match:
+      device_class: tablet
+      tags:
+        - guest_ssid
+      confidence_minimum: 0.70
+    recommend_segment: guest
+    decision: keep
+    approval:
+      required: false
+
+  - id: SNSL-SEG-013
+    precedence: 130
+    description: Corporate smartphones → Trusted
+    match:
+      device_class: smartphone
+      confidence_minimum: 0.80
+    recommend_segment: trusted
+    decision: recommend_move
+    approval:
+      required: false
+
+  - id: SNSL-SEG-014
+    precedence: 140
+    description: Access points → Infrastructure
+    match:
+      device_class: access_point
+      confidence_minimum: 0.80
+    recommend_segment: infrastructure
+    decision: keep
+    approval:
+      required: false
+
+  - id: SNSL-SEG-015
+    precedence: 150
+    description: Switches → Infrastructure
+    match:
+      device_class: switch
+      confidence_minimum: 0.80
+    recommend_segment: infrastructure
+    decision: keep
+    approval:
+      required: false
+
+  - id: SNSL-SEG-016
+    precedence: 160
+    description: Firewall/router → Management
+    match:
+      device_class: firewall
+      confidence_minimum: 0.80
+    recommend_segment: management
+    decision: keep
+    approval:
+      required: false
+
+  - id: SNSL-SEG-017
+    precedence: 170
+    description: Network appliances → Infrastructure
+    match:
+      device_class: network_appliance
+      confidence_minimum: 0.80
+    recommend_segment: infrastructure
+    decision: require_approval
+    approval:
+      required: true
+
+  - id: SNSL-SEG-018
+    precedence: 5
+    description: Deny guest devices transitioning to Management
+    match:
+      source_segment: guest
+      destination_segment: management
+    recommend_segment: guest
+    decision: deny_transition
+    approval:
+      required: false
+
+  - id: SNSL-SEG-019
+    precedence: 6
+    description: Deny IoT transitioning to Management
+    match:
+      source_segment: iot
+      destination_segment: management
+    recommend_segment: iot
+    decision: deny_transition
+    approval:
+      required: false
+
+  - id: SNSL-SEG-020
+    precedence: 200
+    description: Low confidence keeps current or Quarantine
+    match:
+      confidence_maximum: 0.59
+    recommend_segment: quarantine
+    decision: quarantine
+    approval:
+      required: true

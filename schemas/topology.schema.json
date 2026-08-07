@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/topology.schema.json",
+  "title": "Topology",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "nodes",
+    "edges",
+    "banner"
+  ],
+  "properties": {
+    "banner": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "generated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "node_id",
+          "device_id",
+          "node_type",
+          "label",
+          "segment",
+          "device_class",
+          "connection_type",
+          "security_state",
+          "online",
+          "metadata_source",
+          "position_source"
+        ],
+        "properties": {
+          "node_id": {
+            "type": "string"
+          },
+          "device_id": {
+            "type": "string"
+          },
+          "node_type": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "segment": {
+            "type": "string"
+          },
+          "device_class": {
+            "type": "string"
+          },
+          "classification_confidence": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "connection_type": {
+            "type": "string"
+          },
+          "security_state": {
+            "type": "string"
+          },
+          "online": {
+            "type": "boolean"
+          },
+          "last_seen": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "metadata_source": {
+            "type": "string"
+          },
+          "position_source": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "z": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "edge_id",
+          "source_node_id",
+          "target_node_id",
+          "edge_type",
+          "provenance"
+        ],
+        "properties": {
+          "edge_id": {
+            "type": "string"
+          },
+          "source_node_id": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          },
+          "edge_type": {
+            "enum": [
+              "wired",
+              "wireless_association",
+              "logical_upstream",
+              "segment_membership",
+              "observed_communication",
+              "allowed_policy_path",
+              "denied_policy_path"
+            ]
+          },
+          "provenance": {
+            "type": "string"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

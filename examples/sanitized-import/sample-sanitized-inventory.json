@@ -1,0 +1,160 @@
+{
+  "banner": "SYNTHETIC DEMONSTRATION DATA",
+  "version": "1.0.0",
+  "privacy_reviewed": true,
+  "source_label": "operator-sanitized-demo",
+  "imported_at_utc": "2026-08-07T12:00:00Z",
+  "warnings": [
+    "Do not publish sanitized data until it has been manually reviewed.",
+    "Automated masking reduces disclosure risk but is not a guarantee of anonymization."
+  ],
+  "devices": [
+    {
+      "device_id": "SYNTHETIC-FW-01",
+      "alias": "Synthetic Firewall",
+      "mac": "02:00:00:00:21:01",
+      "ipv4": "192.0.2.1",
+      "ipv6": "2001:db8::1",
+      "hostname": "SYNTHETIC-FW-01",
+      "vendor": "Sample Network Hardware",
+      "device_class_hint": "firewall",
+      "connection_type": "wired",
+      "current_segment": "management",
+      "recommended_segment": "management",
+      "security_state": "approved",
+      "online": true,
+      "first_seen_utc": "2026-08-07T12:00:00Z",
+      "last_seen_utc": "2026-08-07T12:00:00Z",
+      "stale": false,
+      "tags": [
+        "infrastructure"
+      ],
+      "switch_id": null,
+      "port_id": "WAN0",
+      "ownership_label": "lab-owned",
+      "provenance": "synthetic",
+      "source_mode": "synthetic",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    },
+    {
+      "device_id": "SYNTHETIC-SW-CORE-01",
+      "alias": "Synthetic Core Switch",
+      "mac": "02:00:00:00:22:01",
+      "ipv4": "192.0.2.2",
+      "hostname": "SYNTHETIC-SW-CORE-01",
+      "vendor": "Sample Network Hardware",
+      "device_class_hint": "switch",
+      "connection_type": "wired",
+      "current_segment": "infrastructure",
+      "recommended_segment": "infrastructure",
+      "security_state": "approved",
+      "online": true,
+      "first_seen_utc": "2026-08-07T12:00:00Z",
+      "last_seen_utc": "2026-08-07T12:00:00Z",
+      "stale": false,
+      "tags": [],
+      "provenance": "synthetic",
+      "source_mode": "synthetic",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    },
+    {
+      "device_id": "SYNTHETIC-AP-01",
+      "alias": "Synthetic Access Point 01",
+      "mac": "02:00:00:00:24:01",
+      "ipv4": "198.51.100.10",
+      "hostname": "SYNTHETIC-AP-01",
+      "vendor": "Sample Network Hardware",
+      "device_class_hint": "access_point",
+      "connection_type": "wired",
+      "current_segment": "infrastructure",
+      "recommended_segment": "infrastructure",
+      "security_state": "approved",
+      "online": true,
+      "first_seen_utc": "2026-08-07T12:00:00Z",
+      "last_seen_utc": "2026-08-07T12:00:00Z",
+      "stale": false,
+      "ssid": "SYNTHETIC-LAB",
+      "switch_id": "SYNTHETIC-SW-EDGE-01",
+      "port_id": "Gi1/0/10",
+      "provenance": "synthetic",
+      "source_mode": "synthetic",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    },
+    {
+      "device_id": "SYNTHETIC-WS-01",
+      "alias": "Trusted Workstation",
+      "mac": "02:00:00:00:23:01",
+      "ipv4": "203.0.113.20",
+      "hostname": "SYNTHETIC-WS-01",
+      "vendor": "Synthetic Devices Ltd.",
+      "device_class_hint": "workstation",
+      "connection_type": "wired",
+      "current_segment": "trusted",
+      "recommended_segment": "trusted",
+      "security_state": "approved",
+      "online": true,
+      "first_seen_utc": "2026-08-07T12:00:00Z",
+      "last_seen_utc": "2026-08-07T12:00:00Z",
+      "stale": false,
+      "switch_id": "SYNTHETIC-SW-EDGE-01",
+      "port_id": "Gi1/0/21",
+      "provenance": "synthetic",
+      "source_mode": "synthetic",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    },
+    {
+      "device_id": "SYNTHETIC-PRN-01",
+      "alias": "IoT Printer",
+      "mac": "02:00:00:00:24:11",
+      "ipv4": "203.0.113.41",
+      "hostname": "SYNTHETIC-PRN-01",
+      "vendor": "Fictional Print Works",
+      "device_class_hint": "printer",
+      "connection_type": "wired",
+      "current_segment": "iot",
+      "recommended_segment": "iot",
+      "security_state": "approved",
+      "online": true,
+      "first_seen_utc": "2026-08-07T12:00:00Z",
+      "last_seen_utc": "2026-08-07T12:00:00Z",
+      "stale": false,
+      "tags": [
+        "printing"
+      ],
+      "provenance": "synthetic",
+      "source_mode": "synthetic",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-0001",
+      "device_id": "SYNTHETIC-WS-01",
+      "observed_at_utc": "2026-08-07T12:00:00Z",
+      "provenance": "synthetic",
+      "source": "sanitized-import",
+      "ipv4": "203.0.113.20",
+      "mac": "02:00:00:00:23:01",
+      "hostname": "SYNTHETIC-WS-01",
+      "vendor_hint": "Synthetic Devices Ltd.",
+      "connection_type": "wired",
+      "services": [
+        "secure_web",
+        "dns"
+      ],
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    }
+  ],
+  "services": [
+    {
+      "service_id": "SVC-0001",
+      "device_id": "SYNTHETIC-WS-01",
+      "port": 443,
+      "protocol": "tcp",
+      "category": "secure_web",
+      "provenance": "observed",
+      "observed_at_utc": "2026-08-07T12:00:00Z",
+      "note": "Port maps to category hint only; no product inference."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "version": "1.0.0",
+  "note": "Port maps to category hint only; no product inference.",
+  "services": [
+    {
+      "service_id": "svc-srv-1-443",
+      "device_id": "SYNTHETIC-SRV-01",
+      "port": 443,
+      "protocol": "tcp",
+      "category": "secure_web",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-srv-1-22",
+      "device_id": "SYNTHETIC-SRV-01",
+      "port": 22,
+      "protocol": "tcp",
+      "category": "ssh",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-srv-2-443",
+      "device_id": "SYNTHETIC-SRV-02",
+      "port": 443,
+      "protocol": "tcp",
+      "category": "secure_web",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-srv-2-22",
+      "device_id": "SYNTHETIC-SRV-02",
+      "port": 22,
+      "protocol": "tcp",
+      "category": "ssh",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-srv-3-443",
+      "device_id": "SYNTHETIC-SRV-03",
+      "port": 443,
+      "protocol": "tcp",
+      "category": "secure_web",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-srv-3-22",
+      "device_id": "SYNTHETIC-SRV-03",
+      "port": 22,
+      "protocol": "tcp",
+      "category": "ssh",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-prt-1",
+      "device_id": "SYNTHETIC-PRT-01",
+      "port": 9100,
+      "protocol": "tcp",
+      "category": "printing",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-prt-2",
+      "device_id": "SYNTHETIC-PRT-02",
+      "port": 9100,
+      "protocol": "tcp",
+      "category": "printing",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-prt-3",
+      "device_id": "SYNTHETIC-PRT-03",
+      "port": 9100,
+      "protocol": "tcp",
+      "category": "printing",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-cam-1",
+      "device_id": "SYNTHETIC-CAM-01",
+      "port": 554,
+      "protocol": "tcp",
+      "category": "media",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-cam-2",
+      "device_id": "SYNTHETIC-CAM-02",
+      "port": 554,
+      "protocol": "tcp",
+      "category": "media",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-cam-3",
+      "device_id": "SYNTHETIC-CAM-03",
+      "port": 554,
+      "protocol": "tcp",
+      "category": "media",
+      "provenance": "observed"
+    },
+    {
+      "service_id": "svc-cam-4",
+      "device_id": "SYNTHETIC-CAM-04",
+      "port": 554,
+      "protocol": "tcp",
+      "category": "media",
+      "provenance": "observed"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+# SYNTHETIC reachability policy — intended logical model only.
+# No real firewall rules are applied. PROPOSED / SIMULATED — NOT APPLIED
+version: "1.0.0"
+policy_id_prefix: SNSL-RCH
+implicit_default_permit: false
+default_decision: denied
+note: "Models intended policy only. No real firewall verification."
+
+rules:
+  - id: SNSL-RCH-001
+    precedence: 10
+    description: Quarantine may use DHCP
+    source: quarantine
+    destination: any
+    service: dhcp
+    decision: allowed
+
+  - id: SNSL-RCH-002
+    precedence: 20
+    description: Quarantine may use DNS
+    source: quarantine
+    destination: any
+    service: dns
+    decision: allowed
+
+  - id: SNSL-RCH-003
+    precedence: 30
+    description: Quarantine may use NTP
+    source: quarantine
+    destination: any
+    service: ntp
+    decision: allowed
+
+  - id: SNSL-RCH-004
+    precedence: 40
+    description: Quarantine denied to Management
+    source: quarantine
+    destination: management
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-005
+    precedence: 50
+    description: Quarantine denied to Infrastructure
+    source: quarantine
+    destination: infrastructure
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-006
+    precedence: 60
+    description: Quarantine denied to Trusted
+    source: quarantine
+    destination: trusted
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-007
+    precedence: 70
+    description: Quarantine denied IoT east-west
+    source: quarantine
+    destination: iot
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-008
+    precedence: 80
+    description: Quarantine clients cannot reach each other
+    source: quarantine
+    destination: quarantine
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-009
+    precedence: 90
+    description: Quarantine limited Internet egress (conditional onboarding)
+    source: quarantine
+    destination: internet
+    service: secure_web
+    decision: conditional
+
+  - id: SNSL-RCH-010
+    precedence: 100
+    description: Guest denied Management
+    source: guest
+    destination: management
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-011
+    precedence: 110
+    description: Guest denied Infrastructure
+    source: guest
+    destination: infrastructure
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-012
+    precedence: 120
+    description: Guest denied Trusted
+    source: guest
+    destination: trusted
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-013
+    precedence: 130
+    description: Guest Internet web allowed
+    source: guest
+    destination: internet
+    service: secure_web
+    decision: allowed
+
+  - id: SNSL-RCH-014
+    precedence: 140
+    description: IoT denied Management
+    source: iot
+    destination: management
+    service: any
+    decision: denied
+
+  - id: SNSL-RCH-015
+    precedence: 150
+    description: IoT may use DNS
+    source: iot
+    destination: infrastructure
+    service: dns
+    decision: allowed
+
+  - id: SNSL-RCH-016
+    precedence: 160
+    description: IoT may use NTP
+    source: iot
+    destination: infrastructure
+    service: ntp
+    decision: allowed
+
+  - id: SNSL-RCH-017
+    precedence: 170
+    description: Trusted to Internet allowed
+    source: trusted
+    destination: internet
+    service: any
+    decision: allowed
+
+  - id: SNSL-RCH-018
+    precedence: 180
+    description: Management to Infrastructure allowed
+    source: management
+    destination: infrastructure
+    service: any
+    decision: allowed
+
+  - id: SNSL-RCH-019
+    precedence: 190
+    description: Trusted to Infrastructure management services conditional
+    source: trusted
+    destination: infrastructure
+    service: management
+    decision: conditional
+
+  - id: SNSL-RCH-020
+    precedence: 200
+    description: Trusted printing to IoT printers allowed
+    source: trusted
+    destination: iot
+    service: printing
+    decision: allowed
+
+  - id: SNSL-RCH-021
+    precedence: 210
+    description: Infrastructure internal allowed
+    source: infrastructure
+    destination: infrastructure
+    service: any
+    decision: allowed
+
+  - id: SNSL-RCH-022
+    precedence: 220
+    description: Guest SSH to anywhere denied
+    source: guest
+    destination: any
+    service: ssh
+    decision: denied

@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "note": "Fictional vendor names for synthetic demonstration only. Not real vendors.",
+  "vendors": [
+    {
+      "id": "synthetic-devices-ltd",
+      "name": "Synthetic Devices Ltd.",
+      "hint_classes": ["workstation", "laptop", "smartphone"]
+    },
+    {
+      "id": "example-systems-inc",
+      "name": "Example Systems Inc.",
+      "hint_classes": ["server", "nas", "network_appliance"]
+    },
+    {
+      "id": "demo-iot-corporation",
+      "name": "Demo IoT Corporation",
+      "hint_classes": ["iot", "camera", "media_device"]
+    },
+    {
+      "id": "sample-network-hardware",
+      "name": "Sample Network Hardware",
+      "hint_classes": ["switch", "access_point", "firewall"]
+    },
+    {
+      "id": "fictional-print-works",
+      "name": "Fictional Print Works",
+      "hint_classes": ["printer"]
+    }
+  ]
+}

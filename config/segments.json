@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "note": "SYNTHETIC VLAN ID — EXAMPLE ONLY. Documentation IP ranges only. Logical segment prefixes are labels.",
+  "segments": [
+    {
+      "segment_id": "management",
+      "label": "Management",
+      "vlan_id": 210,
+      "vlan_note": "SYNTHETIC VLAN ID — EXAMPLE ONLY",
+      "logical_prefix": "SEGMENT-NET-210",
+      "demo_ipv4_map": "192.0.2.0/24",
+      "security_tier": "privileged",
+      "default_quarantine": false
+    },
+    {
+      "segment_id": "infrastructure",
+      "label": "Infrastructure",
+      "vlan_id": 220,
+      "vlan_note": "SYNTHETIC VLAN ID — EXAMPLE ONLY",
+      "logical_prefix": "SEGMENT-NET-220",
+      "demo_ipv4_map": "198.51.100.0/24",
+      "security_tier": "privileged",
+      "default_quarantine": false
+    },
+    {
+      "segment_id": "trusted",
+      "label": "Trusted",
+      "vlan_id": 230,
+      "vlan_note": "SYNTHETIC VLAN ID — EXAMPLE ONLY",
+      "logical_prefix": "SEGMENT-NET-230",
+      "demo_ipv4_map": "203.0.113.0/24",
+      "security_tier": "standard",
+      "default_quarantine": false
+    },
+    {
+      "segment_id": "iot",
+      "label": "IoT",
+      "vlan_id": 240,
+      "vlan_note": "SYNTHETIC VLAN ID — EXAMPLE ONLY",
+      "logical_prefix": "SEGMENT-NET-240",
+      "demo_ipv4_map": null,
+      "security_tier": "restricted",
+      "default_quarantine": false
+    },
+    {
+      "segment_id": "guest",
+      "label": "Guest",
+      "vlan_id": 250,
+      "vlan_note": "SYNTHETIC VLAN ID — EXAMPLE ONLY",
+      "logical_prefix": "SEGMENT-NET-250",
+      "demo_ipv4_map": null,
+      "security_tier": "restricted",
+      "default_quarantine": false
+    },
+    {
+      "segment_id": "quarantine",
+      "label": "Quarantine",
+      "vlan_id": 260,
+      "vlan_note": "SYNTHETIC VLAN ID — EXAMPLE ONLY",
+      "logical_prefix": "SEGMENT-NET-260",
+      "demo_ipv4_map": null,
+      "security_tier": "isolation",
+      "default_quarantine": true
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "note": "Synthetic service categories. Do not infer product from port alone.",
+  "categories": [
+    "web",
+    "secure_web",
+    "ssh",
+    "dns",
+    "ntp",
+    "dhcp",
+    "printing",
+    "file_service",
+    "media",
+    "database",
+    "management",
+    "unknown"
+  ],
+  "port_hints": {
+    "80": "web",
+    "443": "secure_web",
+    "22": "ssh",
+    "53": "dns",
+    "123": "ntp",
+    "67": "dhcp",
+    "68": "dhcp",
+    "9100": "printing",
+    "631": "printing",
+    "445": "file_service",
+    "2049": "file_service",
+    "554": "media",
+    "8554": "media",
+    "3306": "database",
+    "5432": "database",
+    "161": "management",
+    "22_mgmt": "management"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/event.schema.json",
+  "title": "Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "timestamp_utc",
+    "message",
+    "synthetic"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "message": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "change_label": {
+      "type": "string"
+    },
+    "banner": {
+      "type": "string"
+    }
+  }
+}

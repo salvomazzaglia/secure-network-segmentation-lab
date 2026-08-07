@@ -1,0 +1,69 @@
+{
+  "report_type": "reachability",
+  "version": "1.0.0",
+  "generated_at_utc": "2026-08-07T12:00:00Z",
+  "banner": "SYNTHETIC DEMONSTRATION DATA",
+  "synthetic": true,
+  "change_label": "PROPOSED / SIMULATED \u2014 NOT APPLIED",
+  "summary": {
+    "allowed": 2,
+    "denied": 2,
+    "conditional": 1
+  },
+  "items": [
+    {
+      "source_segment": "quarantine",
+      "destination_segment": "any",
+      "service": "dns",
+      "decision": "allowed",
+      "matched_rule": "SNSL-RCH-002",
+      "explanation": "Quarantine may use DNS",
+      "policy_version": "1.0.0",
+      "note": "Models intended policy only. No real firewall verification."
+    },
+    {
+      "source_segment": "quarantine",
+      "destination_segment": "management",
+      "service": "any",
+      "decision": "denied",
+      "matched_rule": "SNSL-RCH-004",
+      "explanation": "Quarantine denied to Management",
+      "policy_version": "1.0.0",
+      "note": "Models intended policy only. No real firewall verification."
+    },
+    {
+      "source_segment": "guest",
+      "destination_segment": "management",
+      "service": "any",
+      "decision": "denied",
+      "matched_rule": "SNSL-RCH-020",
+      "explanation": "Guest cannot reach Management",
+      "policy_version": "1.0.0",
+      "note": "Models intended policy only. No real firewall verification."
+    },
+    {
+      "source_segment": "trusted",
+      "destination_segment": "internet",
+      "service": "secure_web",
+      "decision": "allowed",
+      "matched_rule": "SNSL-RCH-030",
+      "explanation": "Trusted may use secure web egress",
+      "policy_version": "1.0.0",
+      "note": "Models intended policy only. No real firewall verification."
+    },
+    {
+      "source_segment": "quarantine",
+      "destination_segment": "internet",
+      "service": "secure_web",
+      "decision": "conditional",
+      "matched_rule": "SNSL-RCH-009",
+      "explanation": "Quarantine limited Internet egress (conditional onboarding)",
+      "policy_version": "1.0.0",
+      "note": "Models intended policy only. No real firewall verification."
+    }
+  ],
+  "limitations": [
+    "Logical policy model only.",
+    "No live firewall validation."
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/observation.schema.json",
+  "title": "Observation",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "observation_id",
+    "device_id",
+    "observed_at_utc",
+    "provenance"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "observed_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "provenance": {
+      "enum": [
+        "observed",
+        "reported",
+        "inferred",
+        "synthetic",
+        "operator_defined"
+      ]
+    },
+    "source": {
+      "type": "string"
+    },
+    "ipv4": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ipv6": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mac": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^02(:[0-9A-Fa-f]{2}){5}$"
+    },
+    "hostname": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "vendor_hint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dhcp_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reported_os": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ssid": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ap_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "switch_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "port_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rssi": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "signal_bucket": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "connection_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "raw_notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "banner": {
+      "type": "string"
+    }
+  }
+}

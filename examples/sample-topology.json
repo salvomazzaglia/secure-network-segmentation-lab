@@ -1,0 +1,115 @@
+{
+  "banner": "SYNTHETIC DEMONSTRATION DATA",
+  "note": "Spatial placement is illustrative. It represents logical relationships, security segmentation, and relative wireless quality \u2014 not measured physical location.",
+  "generated_at_utc": "2026-08-07T12:00:00Z",
+  "nodes": [
+    {
+      "node_id": "N-FW-01",
+      "device_id": "SYNTHETIC-FW-01",
+      "node_type": "firewall",
+      "label": "Synthetic Firewall",
+      "segment": "management",
+      "device_class": "firewall",
+      "classification_confidence": 0.95,
+      "connection_type": "wired",
+      "security_state": "approved",
+      "online": true,
+      "last_seen": "2026-08-07T12:00:00Z",
+      "metadata_source": "synthetic",
+      "position_source": "illustrative",
+      "x": 0.0,
+      "y": 2.0,
+      "z": 0.0,
+      "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed."
+    },
+    {
+      "node_id": "N-SW-CORE-01",
+      "device_id": "SYNTHETIC-SW-CORE-01",
+      "node_type": "switch",
+      "label": "Synthetic Core Switch",
+      "segment": "infrastructure",
+      "device_class": "switch",
+      "classification_confidence": 0.94,
+      "connection_type": "wired",
+      "security_state": "approved",
+      "online": true,
+      "last_seen": "2026-08-07T12:00:00Z",
+      "metadata_source": "synthetic",
+      "position_source": "illustrative",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed."
+    },
+    {
+      "node_id": "N-AP-01",
+      "device_id": "SYNTHETIC-AP-01",
+      "node_type": "access_point",
+      "label": "Synthetic AP 01",
+      "segment": "infrastructure",
+      "device_class": "access_point",
+      "classification_confidence": 0.9,
+      "connection_type": "wired",
+      "security_state": "approved",
+      "online": true,
+      "last_seen": "2026-08-07T12:00:00Z",
+      "metadata_source": "synthetic",
+      "position_source": "illustrative",
+      "x": -2.0,
+      "y": -1.0,
+      "z": 1.0,
+      "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed."
+    },
+    {
+      "node_id": "N-UNK-01",
+      "device_id": "SYNTHETIC-UNK-01",
+      "node_type": "endpoint",
+      "label": "Unknown Quarantined Device",
+      "segment": "quarantine",
+      "device_class": "unknown",
+      "classification_confidence": 0.31,
+      "connection_type": "wireless",
+      "security_state": "quarantined",
+      "online": true,
+      "last_seen": "2026-08-07T12:00:00Z",
+      "metadata_source": "synthetic",
+      "position_source": "illustrative",
+      "x": -3.0,
+      "y": -2.0,
+      "z": 1.5,
+      "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed."
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "E-FW-SW",
+      "source_node_id": "N-FW-01",
+      "target_node_id": "N-SW-CORE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "uplink",
+      "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed."
+    },
+    {
+      "edge_id": "E-SW-AP",
+      "source_node_id": "N-SW-CORE-01",
+      "target_node_id": "N-AP-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access",
+      "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed."
+    },
+    {
+      "edge_id": "E-AP-UNK",
+      "source_node_id": "N-AP-01",
+      "target_node_id": "N-UNK-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "weak",
+      "metadata": {
+        "signal_bucket": "weak"
+      },
+      "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed."
+    }
+  ]
+}

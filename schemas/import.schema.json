@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/import.schema.json",
+  "title": "SanitizedImportBundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "banner",
+    "version",
+    "privacy_reviewed",
+    "devices"
+  ],
+  "properties": {
+    "banner": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "privacy_reviewed": {
+      "type": "boolean",
+      "description": "Must be true only after manual review."
+    },
+    "source_label": {
+      "type": "string"
+    },
+    "imported_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "$ref": "device.schema.json"
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "$ref": "observation.schema.json"
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "$ref": "service.schema.json"
+      }
+    }
+  }
+}

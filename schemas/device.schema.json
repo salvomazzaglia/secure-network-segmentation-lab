@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/device.schema.json",
+  "title": "Device",
+  "description": "Synthetic inventory device record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "device_id",
+    "alias",
+    "mac",
+    "connection_type",
+    "current_segment",
+    "security_state",
+    "online",
+    "first_seen_utc",
+    "last_seen_utc",
+    "provenance",
+    "source_mode"
+  ],
+  "properties": {
+    "device_id": {
+      "type": "string",
+      "pattern": "^SYNTHETIC-[A-Z0-9-]+$"
+    },
+    "alias": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mac": {
+      "type": "string",
+      "pattern": "^02(:[0-9A-Fa-f]{2}){5}$"
+    },
+    "ipv4": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Documentation IPv4 only (192.0.2/198.51.100/203.0.113)."
+    },
+    "ipv6": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Documentation IPv6 only (2001:db8::/32)."
+    },
+    "hostname": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "vendor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "device_class_hint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "connection_type": {
+      "enum": [
+        "wired",
+        "wireless",
+        "logical",
+        "unknown"
+      ]
+    },
+    "current_segment": {
+      "type": "string"
+    },
+    "recommended_segment": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "security_state": {
+      "enum": [
+        "approved",
+        "restricted",
+        "quarantined",
+        "uncertain",
+        "policy_violation",
+        "offline",
+        "awaiting_approval"
+      ]
+    },
+    "online": {
+      "type": "boolean"
+    },
+    "first_seen_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_seen_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "stale": {
+      "type": "boolean"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ssid": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ap_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "switch_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "port_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "signal_bucket": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "strong",
+            "good",
+            "moderate",
+            "weak"
+          ]
+        }
+      ]
+    },
+    "rssi": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "ownership_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provenance": {
+      "enum": [
+        "observed",
+        "reported",
+        "inferred",
+        "synthetic",
+        "operator_defined"
+      ]
+    },
+    "source_mode": {
+      "enum": [
+        "synthetic",
+        "imported",
+        "live-adapter-plan"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "banner": {
+      "type": "string"
+    }
+  }
+}

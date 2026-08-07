@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/service.schema.json",
+  "title": "ServiceObservation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "service_id",
+    "device_id",
+    "category",
+    "provenance"
+  ],
+  "properties": {
+    "service_id": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "port": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "provenance": {
+      "enum": [
+        "observed",
+        "reported",
+        "inferred",
+        "synthetic",
+        "operator_defined"
+      ]
+    },
+    "observed_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "detail": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

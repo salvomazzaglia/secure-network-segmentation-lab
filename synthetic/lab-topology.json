@@ -1,0 +1,724 @@
+{
+  "version": "1.0.0",
+  "seed": 42,
+  "note": "The position and edge length are normalized for visualization. No physical cable-length estimation is performed.",
+  "nodes": [
+    {
+      "node_id": "node-SYNTHETIC-FW-01",
+      "device_id": "SYNTHETIC-FW-01",
+      "node_type": "firewall",
+      "label": "SYNTHETIC-FW-01",
+      "segment": "management",
+      "x": 0,
+      "y": 0,
+      "z": 2
+    },
+    {
+      "node_id": "node-SYNTHETIC-SW-CORE-01",
+      "device_id": "SYNTHETIC-SW-CORE-01",
+      "node_type": "switch",
+      "label": "SYNTHETIC-SW-CORE-01",
+      "segment": "infrastructure",
+      "x": 0,
+      "y": -2,
+      "z": 1
+    },
+    {
+      "node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "device_id": "SYNTHETIC-SW-EDGE-01",
+      "node_type": "switch",
+      "label": "SYNTHETIC-SW-EDGE-01",
+      "segment": "infrastructure",
+      "x": -4,
+      "y": -3,
+      "z": 0.5
+    },
+    {
+      "node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "device_id": "SYNTHETIC-SW-EDGE-02",
+      "node_type": "switch",
+      "label": "SYNTHETIC-SW-EDGE-02",
+      "segment": "infrastructure",
+      "x": 4,
+      "y": -3,
+      "z": 0.5
+    },
+    {
+      "node_id": "node-SYNTHETIC-AP-01",
+      "device_id": "SYNTHETIC-AP-01",
+      "node_type": "access_point",
+      "label": "SYNTHETIC-AP-01",
+      "segment": "infrastructure",
+      "x": -3,
+      "y": -5,
+      "z": 1.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-AP-02",
+      "device_id": "SYNTHETIC-AP-02",
+      "node_type": "access_point",
+      "label": "SYNTHETIC-AP-02",
+      "segment": "infrastructure",
+      "x": 0,
+      "y": -5,
+      "z": 1.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-AP-03",
+      "device_id": "SYNTHETIC-AP-03",
+      "node_type": "access_point",
+      "label": "SYNTHETIC-AP-03",
+      "segment": "infrastructure",
+      "x": 3,
+      "y": -5,
+      "z": 1.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-SRV-01",
+      "device_id": "SYNTHETIC-SRV-01",
+      "node_type": "server",
+      "label": "SYNTHETIC-SRV-01",
+      "segment": "infrastructure",
+      "x": -4,
+      "y": -1,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-SRV-02",
+      "device_id": "SYNTHETIC-SRV-02",
+      "node_type": "server",
+      "label": "SYNTHETIC-SRV-02",
+      "segment": "infrastructure",
+      "x": -3,
+      "y": -1,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-SRV-03",
+      "device_id": "SYNTHETIC-SRV-03",
+      "node_type": "server",
+      "label": "SYNTHETIC-SRV-03",
+      "segment": "infrastructure",
+      "x": -2,
+      "y": -1,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-WS-01",
+      "device_id": "SYNTHETIC-WS-01",
+      "node_type": "workstation",
+      "label": "SYNTHETIC-WS-01",
+      "segment": "trusted",
+      "x": 2.8,
+      "y": -2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-WS-02",
+      "device_id": "SYNTHETIC-WS-02",
+      "node_type": "workstation",
+      "label": "SYNTHETIC-WS-02",
+      "segment": "trusted",
+      "x": 3.6,
+      "y": -2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-WS-03",
+      "device_id": "SYNTHETIC-WS-03",
+      "node_type": "workstation",
+      "label": "SYNTHETIC-WS-03",
+      "segment": "trusted",
+      "x": 4.4,
+      "y": -2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-LAP-04",
+      "device_id": "SYNTHETIC-LAP-04",
+      "node_type": "laptop",
+      "label": "SYNTHETIC-LAP-04",
+      "segment": "trusted",
+      "x": 5.2,
+      "y": -2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-LAP-05",
+      "device_id": "SYNTHETIC-LAP-05",
+      "node_type": "laptop",
+      "label": "SYNTHETIC-LAP-05",
+      "segment": "trusted",
+      "x": 6.0,
+      "y": -2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-PHONE-01",
+      "device_id": "SYNTHETIC-PHONE-01",
+      "node_type": "smartphone",
+      "label": "SYNTHETIC-PHONE-01",
+      "segment": "guest",
+      "x": -1,
+      "y": -6,
+      "z": 0.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-TAB-02",
+      "device_id": "SYNTHETIC-TAB-02",
+      "node_type": "tablet",
+      "label": "SYNTHETIC-TAB-02",
+      "segment": "guest",
+      "x": 0,
+      "y": -6,
+      "z": 0.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-PHONE-03",
+      "device_id": "SYNTHETIC-PHONE-03",
+      "node_type": "smartphone",
+      "label": "SYNTHETIC-PHONE-03",
+      "segment": "trusted",
+      "x": 1,
+      "y": -6,
+      "z": 0.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-TAB-04",
+      "device_id": "SYNTHETIC-TAB-04",
+      "node_type": "tablet",
+      "label": "SYNTHETIC-TAB-04",
+      "segment": "trusted",
+      "x": 2,
+      "y": -6,
+      "z": 0.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-PHONE-05",
+      "device_id": "SYNTHETIC-PHONE-05",
+      "node_type": "smartphone",
+      "label": "SYNTHETIC-PHONE-05",
+      "segment": "trusted",
+      "x": 3,
+      "y": -6,
+      "z": 0.2
+    },
+    {
+      "node_id": "node-SYNTHETIC-PRT-01",
+      "device_id": "SYNTHETIC-PRT-01",
+      "node_type": "printer",
+      "label": "SYNTHETIC-PRT-01",
+      "segment": "iot",
+      "x": -6,
+      "y": -3.5,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-PRT-02",
+      "device_id": "SYNTHETIC-PRT-02",
+      "node_type": "printer",
+      "label": "SYNTHETIC-PRT-02",
+      "segment": "iot",
+      "x": -6,
+      "y": -3.0,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-PRT-03",
+      "device_id": "SYNTHETIC-PRT-03",
+      "node_type": "printer",
+      "label": "SYNTHETIC-PRT-03",
+      "segment": "iot",
+      "x": -6,
+      "y": -2.5,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-CAM-01",
+      "device_id": "SYNTHETIC-CAM-01",
+      "node_type": "camera",
+      "label": "SYNTHETIC-CAM-01",
+      "segment": "iot",
+      "x": 6,
+      "y": -3.6,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-CAM-02",
+      "device_id": "SYNTHETIC-CAM-02",
+      "node_type": "camera",
+      "label": "SYNTHETIC-CAM-02",
+      "segment": "iot",
+      "x": 6,
+      "y": -3.2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-CAM-03",
+      "device_id": "SYNTHETIC-CAM-03",
+      "node_type": "camera",
+      "label": "SYNTHETIC-CAM-03",
+      "segment": "iot",
+      "x": 6,
+      "y": -2.8,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-CAM-04",
+      "device_id": "SYNTHETIC-CAM-04",
+      "node_type": "camera",
+      "label": "SYNTHETIC-CAM-04",
+      "segment": "iot",
+      "x": 6,
+      "y": -2.4,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-IOT-01",
+      "device_id": "SYNTHETIC-IOT-01",
+      "node_type": "iot",
+      "label": "SYNTHETIC-IOT-01",
+      "segment": "iot",
+      "x": -3.5,
+      "y": -7,
+      "z": 0.1
+    },
+    {
+      "node_id": "node-SYNTHETIC-IOT-02",
+      "device_id": "SYNTHETIC-IOT-02",
+      "node_type": "iot",
+      "label": "SYNTHETIC-IOT-02",
+      "segment": "iot",
+      "x": -3.0,
+      "y": -7,
+      "z": 0.1
+    },
+    {
+      "node_id": "node-SYNTHETIC-IOT-03",
+      "device_id": "SYNTHETIC-IOT-03",
+      "node_type": "iot",
+      "label": "SYNTHETIC-IOT-03",
+      "segment": "iot",
+      "x": -2.5,
+      "y": -7,
+      "z": 0.1
+    },
+    {
+      "node_id": "node-SYNTHETIC-IOT-04",
+      "device_id": "SYNTHETIC-IOT-04",
+      "node_type": "iot",
+      "label": "SYNTHETIC-IOT-04",
+      "segment": "iot",
+      "x": -2.0,
+      "y": -7,
+      "z": 0.1
+    },
+    {
+      "node_id": "node-SYNTHETIC-IOT-05",
+      "device_id": "SYNTHETIC-IOT-05",
+      "node_type": "iot",
+      "label": "SYNTHETIC-IOT-05",
+      "segment": "iot",
+      "x": -1.5,
+      "y": -7,
+      "z": 0.1
+    },
+    {
+      "node_id": "node-SYNTHETIC-MEDIA-01",
+      "device_id": "SYNTHETIC-MEDIA-01",
+      "node_type": "media_device",
+      "label": "SYNTHETIC-MEDIA-01",
+      "segment": "iot",
+      "x": 2,
+      "y": -7.5,
+      "z": 0.1
+    },
+    {
+      "node_id": "node-SYNTHETIC-MEDIA-02",
+      "device_id": "SYNTHETIC-MEDIA-02",
+      "node_type": "media_device",
+      "label": "SYNTHETIC-MEDIA-02",
+      "segment": "iot",
+      "x": 3,
+      "y": -7.5,
+      "z": 0.1
+    },
+    {
+      "node_id": "node-SYNTHETIC-APPL-01",
+      "device_id": "SYNTHETIC-APPL-01",
+      "node_type": "network_appliance",
+      "label": "SYNTHETIC-APPL-01",
+      "segment": "infrastructure",
+      "x": 0.5,
+      "y": -1.5,
+      "z": 0.3
+    },
+    {
+      "node_id": "node-SYNTHETIC-APPL-02",
+      "device_id": "SYNTHETIC-APPL-02",
+      "node_type": "network_appliance",
+      "label": "SYNTHETIC-APPL-02",
+      "segment": "infrastructure",
+      "x": 1.0,
+      "y": -1.5,
+      "z": 0.3
+    },
+    {
+      "node_id": "node-SYNTHETIC-UNK-01",
+      "device_id": "SYNTHETIC-UNK-01",
+      "node_type": "unknown",
+      "label": "SYNTHETIC-UNK-01",
+      "segment": "quarantine",
+      "x": -0.4,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-UNK-02",
+      "device_id": "SYNTHETIC-UNK-02",
+      "node_type": "unknown",
+      "label": "SYNTHETIC-UNK-02",
+      "segment": "quarantine",
+      "x": 0.19999999999999996,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-UNK-03",
+      "device_id": "SYNTHETIC-UNK-03",
+      "node_type": "unknown",
+      "label": "SYNTHETIC-UNK-03",
+      "segment": "quarantine",
+      "x": 0.7999999999999998,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-UNK-04",
+      "device_id": "SYNTHETIC-UNK-04",
+      "node_type": "unknown",
+      "label": "SYNTHETIC-UNK-04",
+      "segment": "quarantine",
+      "x": 1.4,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "node_id": "node-SYNTHETIC-CAM-MISPLACED-01",
+      "device_id": "SYNTHETIC-CAM-MISPLACED-01",
+      "node_type": "camera",
+      "label": "SYNTHETIC-CAM-MISPLACED-01",
+      "segment": "trusted",
+      "x": 5,
+      "y": 0,
+      "z": 0
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "uplink-edge1-core",
+      "source_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "target_node_id": "node-SYNTHETIC-SW-CORE-01",
+      "edge_type": "logical_upstream",
+      "provenance": "synthetic",
+      "label": "uplink"
+    },
+    {
+      "edge_id": "uplink-edge2-core",
+      "source_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "target_node_id": "node-SYNTHETIC-SW-CORE-01",
+      "edge_type": "logical_upstream",
+      "provenance": "synthetic",
+      "label": "uplink"
+    },
+    {
+      "edge_id": "uplink-core-fw",
+      "source_node_id": "node-SYNTHETIC-SW-CORE-01",
+      "target_node_id": "node-SYNTHETIC-FW-01",
+      "edge_type": "logical_upstream",
+      "provenance": "synthetic",
+      "label": "core-to-fw"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-SRV-01-edge1",
+      "source_node_id": "node-SYNTHETIC-SRV-01",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access",
+      "metadata": {
+        "port_id": "Gi1/1"
+      }
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-SRV-02-edge1",
+      "source_node_id": "node-SYNTHETIC-SRV-02",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access",
+      "metadata": {
+        "port_id": "Gi1/2"
+      }
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-SRV-03-edge1",
+      "source_node_id": "node-SYNTHETIC-SRV-03",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access",
+      "metadata": {
+        "port_id": "Gi1/3"
+      }
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-WS-01-edge2",
+      "source_node_id": "node-SYNTHETIC-WS-01",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-WS-02-edge2",
+      "source_node_id": "node-SYNTHETIC-WS-02",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-WS-03-edge2",
+      "source_node_id": "node-SYNTHETIC-WS-03",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-LAP-04-ap02",
+      "source_node_id": "node-SYNTHETIC-LAP-04",
+      "target_node_id": "node-SYNTHETIC-AP-02",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-LAP-05-ap02",
+      "source_node_id": "node-SYNTHETIC-LAP-05",
+      "target_node_id": "node-SYNTHETIC-AP-02",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-PHONE-01-SYNTHETIC-AP-01",
+      "source_node_id": "node-SYNTHETIC-PHONE-01",
+      "target_node_id": "node-SYNTHETIC-AP-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-TAB-02-SYNTHETIC-AP-01",
+      "source_node_id": "node-SYNTHETIC-TAB-02",
+      "target_node_id": "node-SYNTHETIC-AP-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-PHONE-03-SYNTHETIC-AP-03",
+      "source_node_id": "node-SYNTHETIC-PHONE-03",
+      "target_node_id": "node-SYNTHETIC-AP-03",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-TAB-04-SYNTHETIC-AP-03",
+      "source_node_id": "node-SYNTHETIC-TAB-04",
+      "target_node_id": "node-SYNTHETIC-AP-03",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-PHONE-05-SYNTHETIC-AP-03",
+      "source_node_id": "node-SYNTHETIC-PHONE-05",
+      "target_node_id": "node-SYNTHETIC-AP-03",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-PRT-01-edge1",
+      "source_node_id": "node-SYNTHETIC-PRT-01",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-PRT-02-edge1",
+      "source_node_id": "node-SYNTHETIC-PRT-02",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-PRT-03-edge1",
+      "source_node_id": "node-SYNTHETIC-PRT-03",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-CAM-01-edge2",
+      "source_node_id": "node-SYNTHETIC-CAM-01",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-CAM-02-edge2",
+      "source_node_id": "node-SYNTHETIC-CAM-02",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-CAM-03-edge2",
+      "source_node_id": "node-SYNTHETIC-CAM-03",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-CAM-04-edge2",
+      "source_node_id": "node-SYNTHETIC-CAM-04",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-IOT-01-ap01",
+      "source_node_id": "node-SYNTHETIC-IOT-01",
+      "target_node_id": "node-SYNTHETIC-AP-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-IOT-02-ap01",
+      "source_node_id": "node-SYNTHETIC-IOT-02",
+      "target_node_id": "node-SYNTHETIC-AP-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-IOT-03-ap01",
+      "source_node_id": "node-SYNTHETIC-IOT-03",
+      "target_node_id": "node-SYNTHETIC-AP-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-IOT-04-ap01",
+      "source_node_id": "node-SYNTHETIC-IOT-04",
+      "target_node_id": "node-SYNTHETIC-AP-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-IOT-05-ap01",
+      "source_node_id": "node-SYNTHETIC-IOT-05",
+      "target_node_id": "node-SYNTHETIC-AP-01",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-MEDIA-01-ap03",
+      "source_node_id": "node-SYNTHETIC-MEDIA-01",
+      "target_node_id": "node-SYNTHETIC-AP-03",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-MEDIA-02-ap03",
+      "source_node_id": "node-SYNTHETIC-MEDIA-02",
+      "target_node_id": "node-SYNTHETIC-AP-03",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-APPL-01-core",
+      "source_node_id": "node-SYNTHETIC-APPL-01",
+      "target_node_id": "node-SYNTHETIC-SW-CORE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-APPL-02-core",
+      "source_node_id": "node-SYNTHETIC-APPL-02",
+      "target_node_id": "node-SYNTHETIC-SW-CORE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-UNK-01-ap02",
+      "source_node_id": "node-SYNTHETIC-UNK-01",
+      "target_node_id": "node-SYNTHETIC-AP-02",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-UNK-02-edge1",
+      "source_node_id": "node-SYNTHETIC-UNK-02",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wlan-SYNTHETIC-UNK-03-ap02",
+      "source_node_id": "node-SYNTHETIC-UNK-03",
+      "target_node_id": "node-SYNTHETIC-AP-02",
+      "edge_type": "wireless_association",
+      "provenance": "synthetic",
+      "label": "association"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-UNK-04-edge1",
+      "source_node_id": "node-SYNTHETIC-UNK-04",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-01",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    },
+    {
+      "edge_id": "wired-SYNTHETIC-CAM-MISPLACED-01-edge2",
+      "source_node_id": "node-SYNTHETIC-CAM-MISPLACED-01",
+      "target_node_id": "node-SYNTHETIC-SW-EDGE-02",
+      "edge_type": "wired",
+      "provenance": "synthetic",
+      "label": "access"
+    }
+  ]
+}

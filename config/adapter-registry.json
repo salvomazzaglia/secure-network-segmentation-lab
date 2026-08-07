@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0",
+  "note": "Future read-only adapter registry. v1.0 emits DRY-RUN plans only. No connections.",
+  "adapters": [
+    {
+      "id": "radius",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    },
+    {
+      "id": "dhcp",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    },
+    {
+      "id": "arp",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    },
+    {
+      "id": "lldp",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    },
+    {
+      "id": "fdb",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    },
+    {
+      "id": "snmp",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    },
+    {
+      "id": "wlan",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    },
+    {
+      "id": "firewall",
+      "mode": "live-adapter-plan",
+      "capability": "read-only-plan",
+      "connects": false,
+      "mutates": false
+    }
+  ]
+}

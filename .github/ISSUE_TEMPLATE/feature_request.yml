@@ -1,0 +1,43 @@
+name: Feature request
+description: Propose an enhancement that preserves the synthetic, offline-first boundary
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature ideas should remain compatible with **no enforcement** and **no live network discovery** in v1.x unless explicitly scoped as a future safety-designed adapter.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What gap does this address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the desired behavior.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: enforcement
+    attributes:
+      label: Does this require network mutation or live discovery?
+      options:
+        - "No"
+        - "Yes (future adapter / safety design required)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: synthetic
+    attributes:
+      label: Privacy
+      options:
+        - label: I will not include real network data in this request or follow-up attachments.
+          required: true

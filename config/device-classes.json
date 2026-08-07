@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "note": "Fictional device classes for synthetic classification only.",
+  "classes": [
+    "firewall",
+    "router",
+    "switch",
+    "access_point",
+    "server",
+    "workstation",
+    "laptop",
+    "smartphone",
+    "tablet",
+    "printer",
+    "camera",
+    "nas",
+    "media_device",
+    "iot",
+    "network_appliance",
+    "unknown"
+  ]
+}

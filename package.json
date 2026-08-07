@@ -1,0 +1,15 @@
+{
+  "name": "secure-network-segmentation-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vendor-neutral offline-first Secure Network Segmentation Lab (synthetic)",
+  "scripts": {
+    "frontend:ci": "npm --prefix frontend ci",
+    "frontend:build": "npm --prefix frontend run build",
+    "frontend:test": "npm --prefix frontend test",
+    "validate": "python scripts/validate-repository.py",
+    "full-ci": "python scripts/run-full-ci.py"
+  },
+  "license": "MIT",
+  "author": "Salvatore Mazzaglia"
+}

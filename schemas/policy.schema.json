@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/policy.schema.json",
+  "title": "PolicyDecisionResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "policy_id",
+    "device_id",
+    "current_segment",
+    "decision",
+    "approval_required",
+    "reason",
+    "policy_version",
+    "generated_at_utc"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "matched_rule": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "current_segment": {
+      "type": "string"
+    },
+    "recommended_segment": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "keep",
+        "recommend_move",
+        "quarantine",
+        "require_approval",
+        "deny_transition",
+        "no_match"
+      ]
+    },
+    "approval_required": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "generated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "change_label": {
+      "type": "string"
+    },
+    "banner": {
+      "type": "string"
+    }
+  }
+}

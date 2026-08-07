@@ -1,0 +1,72 @@
+name: Bug report
+description: Report a defect in the synthetic Secure Network Segmentation Lab
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve this lab. **Do not attach real network data**, configs, PCAPs, credentials, or screenshots from production environments.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use synthetic commands only (generate-demo, simulate, etc.).
+      placeholder: |
+        1. python -m secure_network_segmentation_lab simulate --scenario mixed --seed 42
+        2. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Backend
+        - Frontend / 3D
+        - Policy / classification
+        - Privacy guards / CI
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: synthetic
+    attributes:
+      label: Synthetic data confirmation
+      options:
+        - label: I confirm this report contains no real network identifiers, credentials, or topology.
+          required: true

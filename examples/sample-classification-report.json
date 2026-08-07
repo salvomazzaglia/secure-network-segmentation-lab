@@ -1,0 +1,65 @@
+{
+  "report_type": "classification",
+  "version": "1.0.0",
+  "generated_at_utc": "2026-08-07T12:00:00Z",
+  "banner": "SYNTHETIC DEMONSTRATION DATA",
+  "synthetic": true,
+  "summary": {
+    "classified": 7,
+    "uncertain": 1,
+    "unknown": 1,
+    "manually_reviewed": 0
+  },
+  "items": [
+    {
+      "device_id": "SYNTHETIC-PRN-01",
+      "predicted_class": "printer",
+      "confidence": 0.91,
+      "alternatives": [
+        {
+          "class": "iot",
+          "confidence": 0.42
+        }
+      ],
+      "evidence": [
+        {
+          "key": "services",
+          "label": "Printing service category",
+          "weight": 0.25,
+          "contribution": 0.25,
+          "detail": "Observed printing category on synthetic port hint",
+          "provenance": "synthetic"
+        },
+        {
+          "key": "vendor_hint",
+          "label": "Fictional vendor hint",
+          "weight": 0.15,
+          "contribution": 0.15,
+          "detail": "Fictional Print Works",
+          "provenance": "synthetic"
+        }
+      ],
+      "classification_status": "classified",
+      "generated_at_utc": "2026-08-07T12:00:00Z",
+      "explanation": "Heuristic score from weighted synthetic evidence.",
+      "note": "confidence is a normalized heuristic evidence score, not statistical probability",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    },
+    {
+      "device_id": "SYNTHETIC-UNK-01",
+      "predicted_class": "unknown",
+      "confidence": 0.31,
+      "alternatives": [],
+      "evidence": [],
+      "classification_status": "unknown",
+      "generated_at_utc": "2026-08-07T12:00:00Z",
+      "explanation": "Insufficient evidence for class assignment.",
+      "note": "confidence is a normalized heuristic evidence score, not statistical probability",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    }
+  ],
+  "limitations": [
+    "No machine-learning model.",
+    "Explainable deterministic scoring only."
+  ]
+}

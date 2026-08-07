@@ -1,0 +1,63 @@
+{
+  "report_type": "policy",
+  "version": "1.0.0",
+  "generated_at_utc": "2026-08-07T12:00:00Z",
+  "banner": "SYNTHETIC DEMONSTRATION DATA",
+  "synthetic": true,
+  "change_label": "PROPOSED / SIMULATED \u2014 NOT APPLIED",
+  "summary": {
+    "decisions": 3,
+    "approval_required": 2
+  },
+  "items": [
+    {
+      "policy_id": "SNSL-SEG-001",
+      "matched_rule": "SNSL-SEG-001",
+      "device_id": "SYNTHETIC-UNK-01",
+      "current_segment": "quarantine",
+      "recommended_segment": "quarantine",
+      "decision": "quarantine",
+      "approval_required": true,
+      "reason": "Unknown devices recommend Quarantine",
+      "confidence": 0.31,
+      "policy_version": "1.0.0",
+      "generated_at_utc": "2026-08-07T12:00:00Z",
+      "change_label": "PROPOSED / SIMULATED \u2014 NOT APPLIED",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    },
+    {
+      "policy_id": "SNSL-SEG-003",
+      "matched_rule": "SNSL-SEG-003",
+      "device_id": "SYNTHETIC-PRN-01",
+      "current_segment": "iot",
+      "recommended_segment": "iot",
+      "decision": "recommend_move",
+      "approval_required": false,
+      "reason": "Printers with sufficient confidence \u2192 IoT",
+      "confidence": 0.91,
+      "policy_version": "1.0.0",
+      "generated_at_utc": "2026-08-07T12:00:00Z",
+      "change_label": "PROPOSED / SIMULATED \u2014 NOT APPLIED",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    },
+    {
+      "policy_id": "SNSL-SEG-007",
+      "matched_rule": "SNSL-SEG-007",
+      "device_id": "SYNTHETIC-SRV-01",
+      "current_segment": "infrastructure",
+      "recommended_segment": "infrastructure",
+      "decision": "require_approval",
+      "approval_required": true,
+      "reason": "Servers require approval for Infrastructure",
+      "confidence": 0.88,
+      "policy_version": "1.0.0",
+      "generated_at_utc": "2026-08-07T12:00:00Z",
+      "change_label": "PROPOSED / SIMULATED \u2014 NOT APPLIED",
+      "banner": "SYNTHETIC DEMONSTRATION DATA"
+    }
+  ],
+  "limitations": [
+    "PROPOSED / SIMULATED \u2014 NOT APPLIED",
+    "Declarative YAML only; no executable expressions."
+  ]
+}

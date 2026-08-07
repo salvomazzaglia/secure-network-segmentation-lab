@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/salvomazzaglia/secure-network-segmentation-lab/schemas/segment.schema.json",
+  "title": "Segment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "segment_id",
+    "label",
+    "vlan_id",
+    "logical_prefix",
+    "security_tier"
+  ],
+  "properties": {
+    "segment_id": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "vlan_id": {
+      "type": "integer"
+    },
+    "vlan_note": {
+      "type": "string"
+    },
+    "logical_prefix": {
+      "type": "string"
+    },
+    "demo_ipv4_map": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "security_tier": {
+      "type": "string"
+    },
+    "default_quarantine": {
+      "type": "boolean"
+    }
+  }
+}

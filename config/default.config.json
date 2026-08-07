@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "source_mode": "synthetic",
+  "bind_host": "127.0.0.1",
+  "bind_port": 8765,
+  "privacy_mode": "masked",
+  "database_path": "runtime/lab.sqlite3",
+  "synthetic_seed": 42,
+  "confidence_thresholds": {
+    "classified": 0.8,
+    "uncertain": 0.6
+  },
+  "stale_after_seconds": 86400,
+  "approval_stale_after_seconds": 604800,
+  "warnings": [
+    "PROPOSED / SIMULATED — NOT APPLIED",
+    "SYNTHETIC DEMONSTRATION DATA",
+    "Version 1.0 never applies network changes."
+  ]
+}

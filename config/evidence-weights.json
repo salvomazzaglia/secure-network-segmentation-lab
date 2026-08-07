@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "note": "Heuristic evidence weights. Confidence is a normalized heuristic score, not statistical probability.",
+  "weights": {
+    "vendor_hint": 0.15,
+    "dhcp_fingerprint": 0.2,
+    "hostname_pattern": 0.1,
+    "services": 0.25,
+    "reported_os": 0.15,
+    "historical_consistency": 0.15
+  }
+}
