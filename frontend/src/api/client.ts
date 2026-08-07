@@ -27,12 +27,7 @@ import type {
   TopologyEdge,
   TopologyNode,
 } from '../models';
-import {
-  BANNER_TEXT,
-  VERSION_WARNING,
-  WIRED_DISCLAIMER,
-  WIRELESS_DISCLAIMER,
-} from '../models';
+import { BANNER_TEXT, VERSION_WARNING, WIRED_DISCLAIMER, WIRELESS_DISCLAIMER } from '../models';
 import { MOCK_LAB } from '../data/mockLab';
 
 export const API_BASE = 'http://127.0.0.1:8765';
@@ -149,7 +144,8 @@ function normalizeTopology(
   const nodeById = new Map<string, Record<string, unknown>>();
   const deviceBySegment = new Map<string, string>();
   for (const d of devices) {
-    if (!deviceBySegment.has(d.current_segment)) deviceBySegment.set(d.current_segment, d.device_id);
+    if (!deviceBySegment.has(d.current_segment))
+      deviceBySegment.set(d.current_segment, d.device_id);
   }
 
   const nodes: TopologyNode[] = rawNodes.map((n, i) => {
@@ -247,7 +243,11 @@ function normalizeDevice(
 ): Device {
   const confidence = Number(clf?.confidence ?? raw.confidence ?? 0);
   const predicted = String(
-    clf?.predicted_class ?? raw.predicted_class ?? raw.device_class_hint ?? raw.device_class ?? 'unknown',
+    clf?.predicted_class ??
+      raw.predicted_class ??
+      raw.device_class_hint ??
+      raw.device_class ??
+      'unknown',
   ) as DeviceClass;
   const security = mapSecurityState(raw.security_state);
   const current = String(raw.current_segment ?? 'quarantine') as SegmentId;
@@ -332,7 +332,10 @@ async function assembleLabFromApi(): Promise<LabSnapshot> {
     throw new Error('Malformed lab payload: empty devices');
   }
 
-  const classifications = asList<Record<string, unknown>>(classificationsPayload, 'classifications');
+  const classifications = asList<Record<string, unknown>>(
+    classificationsPayload,
+    'classifications',
+  );
   const decisions = asList<Record<string, unknown>>(decisionsPayload, 'decisions');
   const clfById = new Map(classifications.map((c) => [String(c.device_id), c]));
   const decById = new Map(decisions.map((d) => [String(d.device_id), d]));

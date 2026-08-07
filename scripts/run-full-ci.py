@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -15,8 +16,18 @@ def run(cmd: list[str], cwd: Path) -> None:
     subprocess.run(cmd, cwd=cwd, check=True)
 
 
+def resolve_npm() -> str:
+    # Prefer npm.cmd on Windows — CreateProcess cannot launch the extensionless shim.
+    for name in ("npm.cmd", "npm"):
+        found = shutil.which(name)
+        if found:
+            return found
+    raise RuntimeError("npm not found on PATH")
+
+
 def main() -> int:
     py = sys.executable
+    npm = resolve_npm()
     backend = ROOT / "backend"
     frontend = ROOT / "frontend"
 
@@ -29,12 +40,12 @@ def main() -> int:
     run([py, "-m", "build"], backend)
     run([py, str(ROOT / "scripts" / "validate-repository.py")], ROOT)
 
-    run(["npm", "ci"], frontend)
-    run(["npm", "run", "typecheck"], frontend)
-    run(["npm", "run", "lint"], frontend)
-    run(["npm", "run", "format:check"], frontend)
-    run(["npm", "test"], frontend)
-    run(["npm", "run", "build"], frontend)
+    run([npm, "ci"], frontend)
+    run([npm, "run", "typecheck"], frontend)
+    run([npm, "run", "lint"], frontend)
+    run([npm, "run", "format:check"], frontend)
+    run([npm, "test"], frontend)
+    run([npm, "run", "build"], frontend)
     print("FULL LOCAL CI PASSED")
     return 0
 

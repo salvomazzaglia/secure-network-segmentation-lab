@@ -28,7 +28,7 @@ FRONTEND = "http://127.0.0.1:5173/"
 
 def _http_ok(url: str, timeout: float = 2.0) -> bool:
     try:
-        with urllib.request.urlopen(url, timeout=timeout) as resp:  # noqa: S310 — localhost only
+        with urllib.request.urlopen(url, timeout=timeout) as resp:
             return 200 <= resp.status < 300
     except (urllib.error.URLError, TimeoutError, OSError):
         return False
@@ -48,7 +48,9 @@ def _validate_png(path: Path) -> dict[str, object]:
     if len(data) < 8 or data[:8] != b"\x89PNG\r\n\x1a\n":
         raise RuntimeError(f"{path.name}: not a valid PNG")
     if len(data) < 50_000:
-        raise RuntimeError(f"{path.name}: file too small ({len(data)} bytes) — likely placeholder")
+        raise RuntimeError(
+            f"{path.name}: file too small ({len(data)} bytes) — likely placeholder"
+        )
     # IHDR width/height
     width = int.from_bytes(data[16:20], "big")
     height = int.from_bytes(data[20:24], "big")
@@ -58,7 +60,12 @@ def _validate_png(path: Path) -> dict[str, object]:
     sample = data[1000 : 1000 + 4000]
     if len(set(sample)) < 40:
         raise RuntimeError(f"{path.name}: appears near-monochrome / placeholder")
-    return {"path": str(path.relative_to(ROOT)).replace("\\", "/"), "bytes": len(data), "width": width, "height": height}
+    return {
+        "path": str(path.relative_to(ROOT)).replace("\\", "/"),
+        "bytes": len(data),
+        "width": width,
+        "height": height,
+    }
 
 
 def main() -> int:
@@ -98,7 +105,16 @@ def main() -> int:
                     return 1
                 procs.append(
                     subprocess.Popen(
-                        [npm, "run", "dev", "--", "--host", "127.0.0.1", "--port", "5173"],
+                        [
+                            npm,
+                            "run",
+                            "dev",
+                            "--",
+                            "--host",
+                            "127.0.0.1",
+                            "--port",
+                            "5173",
+                        ],
                         cwd=str(ROOT / "frontend"),
                         stdout=subprocess.DEVNULL,
                         stderr=subprocess.DEVNULL,
@@ -107,7 +123,9 @@ def main() -> int:
 
         if not _http_ok(BACKEND):
             print("REFUSE SCREENSHOT: backend not reachable at", BACKEND)
-            print("Start with: python -m secure_network_segmentation_lab serve --host 127.0.0.1 --port 8765")
+            print(
+                "Start with: python -m secure_network_segmentation_lab serve --host 127.0.0.1 --port 8765"
+            )
             return 1
         if not _http_ok(FRONTEND):
             print("REFUSE SCREENSHOT: frontend not reachable at", FRONTEND)
@@ -148,7 +166,10 @@ def main() -> int:
 
         (ROOT / "capture-node-deps").mkdir(exist_ok=True)
         (ROOT / "capture-node-deps" / "screenshot-capture-report.json").write_text(
-            json.dumps({"marker": MARKER, "bind": "127.0.0.1", "screenshots": report}, indent=2) + "\n",
+            json.dumps(
+                {"marker": MARKER, "bind": "127.0.0.1", "screenshots": report}, indent=2
+            )
+            + "\n",
             encoding="utf-8",
         )
         return 0

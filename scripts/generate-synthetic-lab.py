@@ -35,7 +35,14 @@ BASE_TIME = datetime(2026, 1, 15, 12, 0, 0, tzinfo=timezone.utc)
 
 def mac(rng: random.Random, n: int) -> str:
     # Locally administered: 02:xx:xx:xx:xx:xx
-    b = [0x02, rng.randint(0, 255), rng.randint(0, 255), rng.randint(0, 255), rng.randint(0, 255), n & 0xFF]
+    b = [
+        0x02,
+        rng.randint(0, 255),
+        rng.randint(0, 255),
+        rng.randint(0, 255),
+        rng.randint(0, 255),
+        n & 0xFF,
+    ]
     return ":".join(f"{x:02x}" for x in b)
 
 
@@ -131,7 +138,9 @@ def build_lab(
 
     idx = 1
 
-    def add(d: dict, x: float, y: float, z: float = 0.0, node_type: str | None = None) -> None:
+    def add(
+        d: dict, x: float, y: float, z: float = 0.0, node_type: str | None = None
+    ) -> None:
         nonlocal idx
         devices.append(d)
         nodes.append(
@@ -324,7 +333,7 @@ def build_lab(
             signal_bucket="strong" if i == 4 else ("moderate" if i == 5 else None),
             security_state=security,
             tags=tags,
-            online=False if i == 3 else True,  # offline device
+            online=i != 3,  # offline device
             last_seen=ts(-30) if i == 3 else None,
         )
         add(d, 2 + i * 0.8, -2, 0)
@@ -563,7 +572,9 @@ def build_lab(
             signal_bucket="moderate" if i % 2 else None,
             stale=stale,
             last_seen=ts(-100) if stale else ts(-1),
-            tags=["awaiting_approval"] if i == 1 else (["uncertain_seed"] if uncertain else []),
+            tags=["awaiting_approval"]
+            if i == 1
+            else (["uncertain_seed"] if uncertain else []),
             metadata={"approval_state": "required"} if i == 1 else {"synthetic": True},
         )
         add(d, -1 + i * 0.6, 2, 0)
@@ -685,7 +696,9 @@ def build_lab(
                 }
             )
 
-        if d.get("device_class_hint") in {"smartphone", "tablet", "laptop"} and d.get("ssid"):
+        if d.get("device_class_hint") in {"smartphone", "tablet", "laptop"} and d.get(
+            "ssid"
+        ):
             radius_events.append(
                 {
                     "event_type": "device_seen",
@@ -710,7 +723,16 @@ def build_lab(
                 }
             )
 
-    return devices, observations, services, nodes, edges, radius_events, wireless_metrics, policy_events
+    return (
+        devices,
+        observations,
+        services,
+        nodes,
+        edges,
+        radius_events,
+        wireless_metrics,
+        policy_events,
+    )
 
 
 def main() -> int:

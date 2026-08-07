@@ -58,7 +58,7 @@ def test_stale(sample_printer):
     old = sample_printer.model_copy(
         update={"last_seen_utc": datetime.now(UTC) - timedelta(days=10)}
     )
-    marked = mark_stale([old], stale_after_seconds=86400)[0]  
+    marked = mark_stale([old], stale_after_seconds=86400)[0]
     assert marked.stale is True
 
 

@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import subprocess
-import sys
 from pathlib import Path
 
 FRONTEND = Path(__file__).resolve().parents[1] / "frontend"

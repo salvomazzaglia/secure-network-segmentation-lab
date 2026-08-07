@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import re
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,13 +37,21 @@ def main() -> int:
             continue
         if any(part in SKIP_DIRS for part in path.parts):
             continue
-        if path.suffix.lower() in {".png", ".jpg", ".pyc", ".sqlite3", ".db", ".whl", ".js"}:
+        if path.suffix.lower() in {
+            ".png",
+            ".jpg",
+            ".pyc",
+            ".sqlite3",
+            ".db",
+            ".whl",
+            ".js",
+        }:
             continue
         if path.name == "package-lock.json":
             continue
         try:
             text = path.read_text(encoding="utf-8")
-        except Exception:
+        except (OSError, UnicodeDecodeError):
             continue
         rel = str(path.relative_to(ROOT))
         if any(part in {"synthetic", "examples"} for part in path.parts) or (
@@ -56,9 +63,7 @@ def main() -> int:
         # Executable danger in source only
         if path.suffix == ".py" and "src" in path.parts:
             code_lines = [
-                line
-                for line in text.splitlines()
-                if not line.strip().startswith("#")
+                line for line in text.splitlines() if not line.strip().startswith("#")
             ]
             code = "\n".join(code_lines)
             if "shell=True" in code.replace(" ", ""):
