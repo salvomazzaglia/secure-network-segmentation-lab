@@ -1,5 +1,5 @@
 # Runtime / local data
-data/
+/data/
 runtime/
 local/
 imports/

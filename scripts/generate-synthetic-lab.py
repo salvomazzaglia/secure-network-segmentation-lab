@@ -10,7 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import random
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
@@ -30,7 +30,7 @@ VENDOR = {
     "printer": "Fictional Print Works",
 }
 
-BASE_TIME = datetime(2026, 1, 15, 12, 0, 0, tzinfo=timezone.utc)
+BASE_TIME = datetime(2026, 1, 15, 12, 0, 0, tzinfo=UTC)
 
 
 def mac(rng: random.Random, n: int) -> str:
