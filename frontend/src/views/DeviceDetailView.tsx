@@ -1,4 +1,5 @@
 import { ApprovalDialog } from '../components/ApprovalDialog';
+import { APPROVAL_DIALOG_TEXT } from '../models';
 import { useAppState } from '../state/appState';
 
 export function DeviceDetailView() {
@@ -46,6 +47,11 @@ export function DeviceDetailView() {
         <span className="badge badge-quarantine" data-testid="quarantine-badge">
           Quarantined
         </span>
+      )}
+      {device.awaiting_approval && (
+        <p className="dialog-warning" data-testid="approval-inline-warning">
+          {APPROVAL_DIALOG_TEXT}
+        </p>
       )}
       <div style={{ height: '0.75rem' }} />
       <dl className="detail-grid panel">

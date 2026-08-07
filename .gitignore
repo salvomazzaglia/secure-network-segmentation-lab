@@ -67,3 +67,5 @@ Thumbs.db
 # Browser temp profiles for screenshots
 .browser-profile/
 browser-profile-tmp/
+.capture-node/
+capture-node-deps/

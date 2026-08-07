@@ -44,10 +44,16 @@ def apply_recommended_segment_simulated(
         "network_applied": False,
     }
 
-    # Simulated state updates only when decision implies quarantine/keep without approval
+    # Simulated state updates — proposed/simulated only (no network action).
+    # Quarantine with approval required stays on current segment until synthetic approval.
     if decision.decision.value == "quarantine" and recommended:
-        data["current_segment"] = recommended
-        data["security_state"] = SecurityState.QUARANTINED
+        if decision.approval_required:
+            data["security_state"] = SecurityState.PENDING_APPROVAL
+            data["metadata"]["approval_state"] = "required"
+            data["metadata"]["proposed_segment"] = recommended
+        else:
+            data["current_segment"] = recommended
+            data["security_state"] = SecurityState.QUARANTINED
     elif decision.decision.value == "keep" and recommended:
         data["current_segment"] = recommended
         if recommended == "quarantine":

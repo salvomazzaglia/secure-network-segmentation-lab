@@ -6,6 +6,7 @@ import logging
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from secure_network_segmentation_lab import __version__
@@ -20,7 +21,7 @@ from secure_network_segmentation_lab.events import make_event, store_event
 from secure_network_segmentation_lab.lab_bootstrap import bootstrap_lab
 from secure_network_segmentation_lab.models import Device
 from secure_network_segmentation_lab.paths import database_path
-from secure_network_segmentation_lab.reachability import evaluate_reachability
+from secure_network_segmentation_lab.reachability import evaluate_matrix, evaluate_reachability
 from secure_network_segmentation_lab.simulator import (
     reset_simulation_events,
     simulate_run,
@@ -57,6 +58,19 @@ def create_app(*, bootstrap: bool = False) -> FastAPI:
         title="Secure Network Segmentation Lab",
         version=__version__,
         description="Synthetic offline segmentation lab — PROPOSED / SIMULATED — NOT APPLIED",
+    )
+    # Local dashboard only — never bind/advertise non-localhost origins.
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[
+            "http://127.0.0.1:5173",
+            "http://localhost:5173",
+            "http://127.0.0.1:4173",
+            "http://localhost:4173",
+        ],
+        allow_credentials=False,
+        allow_methods=["GET", "POST", "OPTIONS"],
+        allow_headers=["Accept", "Content-Type"],
     )
     app.include_router(ws_router)
 
@@ -129,6 +143,10 @@ def create_app(*, bootstrap: bool = False) -> FastAPI:
             ),
         }
 
+    @app.get("/api/v1/services")
+    def services() -> list[dict[str, Any]]:
+        return get_db().list_services()
+
     @app.get("/api/v1/classifications")
     def classifications() -> list[dict[str, Any]]:
         return get_db().list_classifications()
@@ -139,12 +157,41 @@ def create_app(*, bootstrap: bool = False) -> FastAPI:
 
     @app.get("/api/v1/reachability")
     def reachability(
-        source: str = Query(...),
-        destination: str = Query(...),
+        source: str | None = Query(None),
+        destination: str | None = Query(None),
         service: str = Query("any"),
     ) -> dict[str, Any]:
-        result = evaluate_reachability(source, destination, service)
-        return result.model_dump(mode="json")
+        """Single-pair evaluation or modelled matrix (intended policy only)."""
+        if source and destination:
+            result = evaluate_reachability(source, destination, service)
+            return result.model_dump(mode="json")
+
+        db = get_db()
+        segments = [str(s.get("segment_id")) for s in db.list_segments()]
+        services = [service] if service != "any" else ["any", "dns", "ssh", "secure_web"]
+        results = evaluate_matrix(segments, segments, services)
+        paths = []
+        for idx, item in enumerate(results):
+            payload = item.model_dump(mode="json")
+            paths.append(
+                {
+                    "path_id": f"rch-{idx + 1}",
+                    "source_segment": payload["source_segment"],
+                    "destination_segment": payload["destination_segment"],
+                    "service": payload["service"],
+                    "decision": payload["decision"],
+                    "rule_id": payload.get("matched_rule"),
+                    "explanation": payload.get("explanation", ""),
+                }
+            )
+        return {
+            "paths": paths,
+            "note": (
+                "PROPOSED / SIMULATED — NOT APPLIED. "
+                "Reachability is modelled from intended policy only — "
+                "not live firewall or NAC verification."
+            ),
+        }
 
     @app.get("/api/v1/drift")
     def drift() -> list[dict[str, Any]]:
