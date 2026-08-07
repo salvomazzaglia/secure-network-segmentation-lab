@@ -138,9 +138,7 @@ def build_lab(
 
     idx = 1
 
-    def add(
-        d: dict, x: float, y: float, z: float = 0.0, node_type: str | None = None
-    ) -> None:
+    def add(d: dict, x: float, y: float, z: float = 0.0, node_type: str | None = None) -> None:
         nonlocal idx
         devices.append(d)
         nodes.append(
@@ -572,9 +570,7 @@ def build_lab(
             signal_bucket="moderate" if i % 2 else None,
             stale=stale,
             last_seen=ts(-100) if stale else ts(-1),
-            tags=["awaiting_approval"]
-            if i == 1
-            else (["uncertain_seed"] if uncertain else []),
+            tags=["awaiting_approval"] if i == 1 else (["uncertain_seed"] if uncertain else []),
             metadata={"approval_state": "required"} if i == 1 else {"synthetic": True},
         )
         add(d, -1 + i * 0.6, 2, 0)
@@ -696,9 +692,7 @@ def build_lab(
                 }
             )
 
-        if d.get("device_class_hint") in {"smartphone", "tablet", "laptop"} and d.get(
-            "ssid"
-        ):
+        if d.get("device_class_hint") in {"smartphone", "tablet", "laptop"} and d.get("ssid"):
             radius_events.append(
                 {
                     "event_type": "device_seen",
